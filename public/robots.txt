@@ -1,0 +1,4 @@
+# TEMPORARY — block indexing while the portfolio is still placeholder.
+# Remove this file (and the noindex meta in index.html) before launch.
+User-agent: *
+Disallow: /
