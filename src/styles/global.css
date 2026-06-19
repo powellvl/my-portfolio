@@ -1,0 +1,288 @@
+/* ============================================================
+   Design tokens — single source of truth in DESIGN.md
+   ============================================================ */
+
+/* Pixel accent: Pixelify Sans (Google). Swap to Departure Mono by dropping
+   DepartureMono.woff2 into /public/fonts/ and re-adding the @font-face below.
+   @font-face { font-family:'Departure Mono'; src:url('/fonts/DepartureMono.woff2') format('woff2'); font-display:swap; } */
+
+:root {
+  /* Color */
+  --ink: #0a0a0b;
+  --surface: #121214;
+  --line: #1f1f23;
+  --text: #f4f4f2;
+  --muted: #6e6e76;
+  --accent: #7b61ff;
+  --accent-glow: #b9a7ff;
+
+  /* Type families */
+  --font-sans: 'General Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-pixel: 'Pixelify Sans', 'Departure Mono', ui-monospace, monospace;
+
+  /* Type scale */
+  --fs-display: clamp(3.5rem, 12vw, 11rem);
+  --fs-h1: clamp(2.5rem, 6vw, 5rem);
+  --fs-h2: clamp(2rem, 4.5vw, 3.5rem);
+  --fs-h3: 1.5rem;
+  --fs-body-lg: 1.25rem;
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-label: 0.75rem;
+
+  /* Spacing (8px base) */
+  --s-2xs: 4px;
+  --s-xs: 8px;
+  --s-sm: 16px;
+  --s-md: 24px;
+  --s-lg: 40px;
+  --s-xl: 64px;
+  --s-2xl: 96px;
+  --s-3xl: 160px;
+
+  /* Layout */
+  --max-w: 1440px;
+  --gutter: 24px;
+  --margin: clamp(1.25rem, 5vw, 6rem);
+  --section-y: clamp(96px, 14vw, 160px);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --d-micro: 80ms;
+  --d-short: 200ms;
+  --d-medium: 350ms;
+  --d-long: 700ms;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+}
+
+/* ============================================================
+   Reset / base
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background: var(--ink);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: 1.5;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+img,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ============================================================
+   Typography helpers
+   ============================================================ */
+.serif {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.pixel {
+  font-family: var(--font-pixel);
+  font-size: var(--fs-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.accent {
+  color: var(--accent);
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+p {
+  max-width: 68ch;
+}
+
+/* ============================================================
+   Layout utilities
+   ============================================================ */
+.shell {
+  width: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--margin);
+}
+
+.section {
+  position: relative;
+  padding-block: var(--section-y);
+}
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-md);
+  margin-bottom: var(--s-xl);
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   Buttons / links
+   ============================================================ */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-xs);
+  padding: 0.95em 1.6em;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-full, 9999px);
+  font-size: var(--fs-small);
+  letter-spacing: 0.01em;
+  transition: border-color var(--d-short) var(--ease-out),
+    background var(--d-short) var(--ease-out), color var(--d-short) var(--ease-out);
+  will-change: transform;
+}
+.btn:hover {
+  border-color: var(--accent);
+}
+.btn--solid {
+  background: var(--text);
+  color: var(--ink);
+  border-color: var(--text);
+}
+.btn--solid:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.link-underline {
+  position: relative;
+  display: inline-block;
+}
+.link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--d-medium) var(--ease-out);
+}
+.link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ============================================================
+   Reveal primitives (GSAP toggles .is-in)
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity var(--d-long) var(--ease-out),
+    transform var(--d-long) var(--ease-out);
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Line mask for headings */
+.line-mask {
+  overflow: hidden;
+  display: block;
+}
+.line-mask > span {
+  display: block;
+  transform: translateY(110%);
+  transition: transform var(--d-long) var(--ease-out);
+}
+.is-in .line-mask > span,
+.line-mask.is-in > span {
+  transform: none;
+}
+
+/* ============================================================
+   Reduced motion
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  .line-mask > span {
+    transform: none;
+  }
+}
