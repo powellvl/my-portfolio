@@ -24,12 +24,33 @@ export default function Contact() {
 
         <div className="contact-cta" data-reveal>
           <a
-            href={`mailto:${site.email}`}
-            className="contact-email"
+            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+              site.email,
+            )}`}
+            target="_blank"
+            rel="noreferrer"
+            className="mail-cta"
             ref={magnet}
             data-cursor
+            aria-label={`Écrire à ${site.email}`}
+            title={site.email}
           >
-            {site.email}
+            <svg
+              className="mail-icon"
+              viewBox="0 0 100 72"
+              fill="none"
+              aria-hidden="true"
+            >
+              {/* letter — hidden behind the front, slides out on hover */}
+              <rect className="mail-letter" x="24" y="40" width="52" height="22" rx="2" />
+              {/* front pocket — opaque, hides the letter when closed */}
+              <rect className="mail-front" x="5" y="38" width="90" height="28" />
+              <path className="mail-vlines" d="M5 66 L50 42 L95 66" />
+              {/* flap — flips open on hover */}
+              <path className="mail-flap" d="M5 16 L50 46 L95 16 Z" />
+              {/* envelope outline, drawn last so it stays crisp */}
+              <rect className="mail-body" x="5" y="15" width="90" height="51" rx="3" />
+            </svg>
           </a>
         </div>
 

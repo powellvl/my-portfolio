@@ -10,6 +10,9 @@ export default function Cursor() {
     if (window.matchMedia('(pointer: coarse)').matches) return
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
+    // center both on the pointer explicitly (don't rely on parsing the CSS translate)
+    gsap.set([dot.current, ring.current], { xPercent: -50, yPercent: -50 })
+
     const dotX = gsap.quickTo(dot.current, 'x', { duration: 0.12, ease: 'power3' })
     const dotY = gsap.quickTo(dot.current, 'y', { duration: 0.12, ease: 'power3' })
     const ringX = gsap.quickTo(ring.current, 'x', { duration: 0.45, ease: 'power3' })

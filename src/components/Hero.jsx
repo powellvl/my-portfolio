@@ -1,5 +1,6 @@
 import { Component, Suspense, lazy, useEffect, useRef } from 'react'
 import { site } from '../data/site'
+import HeroGreeting from './HeroGreeting'
 
 const Scene3D = lazy(() => import('./Scene3D'))
 const HeroFront = lazy(() => import('./HeroFront'))
@@ -14,24 +15,15 @@ class CanvasBoundary extends Component {
     return { failed: true }
   }
   render() {
-    if (this.state.failed) return <div className="hero-fallback" aria-hidden="true" />
-    return this.props.children
-  }
-}
-
-/* Splits "text {{accent}} text" into nodes, wrapping the braces part. */
-function renderLine(line) {
-  return line.split(/(\{\{.*?\}\})/g).map((part, i) => {
-    const m = part.match(/^\{\{(.*?)\}\}$/)
-    if (m) {
-      return (
-        <em key={i} className="serif accent hero-em">
-          {m[1]}
-        </em>
+    if (this.state.failed) {
+      // the front (decorative) layer must fall back to nothing, not an opaque
+      // poster — otherwise it would cover the hero content when WebGL fails
+      return this.props.front ? null : (
+        <div className="hero-fallback" aria-hidden="true" />
       )
     }
-    return <span key={i}>{part}</span>
-  })
+    return this.props.children
+  }
 }
 
 export default function Hero() {
@@ -63,10 +55,8 @@ export default function Hero() {
           {site.roles.join('  /  ')}
         </p>
 
-        <h1 className="hero-title">
-          <span className="line-mask" data-reveal>
-            <span>{renderLine(site.heroLine)}</span>
-          </span>
+        <h1 className="hero-title hero-title--greeting">
+          <HeroGreeting />
         </h1>
 
         <p className="hero-sub" data-reveal>
@@ -84,7 +74,7 @@ export default function Hero() {
       </div>
 
       <div className="hero-canvas-front" aria-hidden="true">
-        <CanvasBoundary>
+        <CanvasBoundary front>
           <Suspense fallback={null}>
             <HeroFront />
           </Suspense>
