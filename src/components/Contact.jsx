@@ -55,13 +55,23 @@ export default function Contact() {
         </div>
 
         <ul className="contact-socials" data-reveal>
-          {site.socials.map((s) => (
-            <li key={s.label}>
-              <a href={s.href} className="link-underline" data-cursor>
-                {s.label}
-              </a>
-            </li>
-          ))}
+          {site.socials.map((s) => {
+            // open external links (or any flagged target:_blank) in a new tab
+            const newTab = s.target === '_blank' || /^https?:/i.test(s.href)
+            return (
+              <li key={s.label}>
+                <a
+                  href={s.href}
+                  className="link-underline"
+                  data-cursor
+                  target={newTab ? '_blank' : undefined}
+                  rel={newTab ? 'noreferrer' : undefined}
+                >
+                  {s.label}
+                </a>
+              </li>
+            )
+          })}
         </ul>
 
         <p className="contact-loc pixel" data-reveal>

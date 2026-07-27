@@ -19,8 +19,12 @@ export const site = {
   email: "lucax.mb03@gmail.com",
   socials: [
     { label: "Email", href: "mailto:lucax.mb03@gmail.com" },
-    { label: "LinkedIn", href: "#" },
-    { label: "GitHub", href: "#" },
+    {
+      target: "_blank",
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/luca-muscat-baron-3ba04b252/",
+    },
+    { label: "GitHub", href: "https://github.com/powellvl" },
   ],
   nav: [
     { label: "À propos", href: "#about", index: "01" },
