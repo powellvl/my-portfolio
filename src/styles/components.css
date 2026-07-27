@@ -240,12 +240,6 @@ body.has-custom-cursor button {
   max-width: 46ch;
   margin-bottom: var(--s-lg);
 }
-.hero-actions {
-  display: flex;
-  gap: var(--s-sm);
-  flex-wrap: wrap;
-}
-
 /* entrance reveal for hero (data-reveal toggled by JS) */
 .hero [data-reveal] {
   opacity: 0;
@@ -272,14 +266,23 @@ body.has-custom-cursor button {
 
 .hero-scroll {
   position: absolute;
-  right: var(--margin);
-  bottom: var(--s-2xl);
+  left: 50%;
+  bottom: var(--s-lg);
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--s-xs);
-  writing-mode: vertical-rl;
+  /* hidden at first, fades up a few seconds after the page settles */
+  opacity: 0;
+  transform: translateX(-50%) translateY(10px);
+  animation: heroScrollIn var(--d-long) var(--ease-out) 3s forwards;
+}
+@keyframes heroScrollIn {
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
 }
 .hero-scroll-line {
   width: 1px;

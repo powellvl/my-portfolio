@@ -13,8 +13,6 @@ export const site = {
     "مرحبا",
     "Привет",
   ],
-  // Ligne hero — le mot entre {{ }} est mis en violet/serif.
-  heroLine: "Développeur {{Fullstack}}",
   tagline:
     "Développeur et designer indépendant. Je transforme des idées en interfaces nettes, rapides et mémorables.",
   location: "France · Disponible en remote",

@@ -55,22 +55,16 @@ export default function Hero() {
           {site.roles.join('  /  ')}
         </p>
 
-        <h1 className="hero-title hero-title--greeting">
+        <h1
+          className="hero-title hero-title--greeting"
+          aria-label={`Bonjour — ${site.name}, ${site.roles.join(', ')}`}
+        >
           <HeroGreeting />
         </h1>
 
         <p className="hero-sub" data-reveal>
           {site.tagline}
         </p>
-
-        <div className="hero-actions" data-reveal>
-          <a href="#projects" className="btn btn--solid" data-cursor>
-            Voir les projets
-          </a>
-          <a href="#contact" className="btn" data-cursor>
-            Me contacter
-          </a>
-        </div>
       </div>
 
       <div className="hero-canvas-front" aria-hidden="true">
