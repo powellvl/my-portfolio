@@ -6,7 +6,7 @@
 // `sections`    : blocs titrés d'étude de cas [{ title, body }] — ajoute-en autant
 //                 que tu veux (Contexte, Mon rôle, Approche, Résultat, …).
 // `gallery`     : images supplémentaires sur la page détail (chemins /projects/...).
-import vizaraCover from "../img/cover/vizara.png";
+import vizaraCover from "../img/cover/vizara.webp";
 import unifoxCover from "../img/cover/unifox.png";
 import echoCover from "../img/cover/echo.jpg";
 

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { projects, getProject, getProjectIndex } from '../data/projects'
+import { site } from '../data/site'
 import logo from '../img/logo.svg'
 
 /* Cover with graceful fallback to the colored placeholder. */
@@ -41,7 +42,7 @@ export default function ProjectDetail() {
             ← Projets
           </Link>
           <Link to="/" className="pd-brand" aria-label="Retour à l'accueil" data-cursor>
-            <img src={logo} alt="Luca Muscat Baron" />
+            <img src={logo} alt={site.name} />
           </Link>
           <span className="pd-topbar-spacer" aria-hidden="true" />
         </div>
