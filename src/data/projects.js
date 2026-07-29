@@ -1,6 +1,9 @@
 // Projets — défilé horizontal (accueil) + page détail /projet/:id.
 // `image`       : cover principale (importée depuis src/img/cover, sinon cover couleur).
-// `link`        : URL du site live (bouton "Voir le site" sur la page détail).
+// `link`        : URL du site live. Alimente le bouton "Voir le site en ligne"
+//                 ET rend la cover cliquable sur la page détail (nouvel onglet).
+//                 Laisser "" si le site n'est pas en ligne : la cover reste
+//                 une simple image, sans bouton ni indice cliquable.
 // `meta`        : lignes de contexte courtes (mono).
 // `description` : chapô / intro affiché en haut de la page détail.
 // `sections`    : blocs titrés d'étude de cas [{ title, body }] — ajoute-en autant
@@ -22,7 +25,7 @@ export const projects = [
       "Thème WordPress sur-mesure",
     ],
     image: vizaraCover,
-    link: "",
+    link: "https://vizara.fr",
     cover: "#1b1830",
     description:
       "Premier projet mené en freelance : un thème WordPress entièrement sur-mesure, du design d'interface jusqu'à l'intégration front et back. L'objectif était un site rapide, éditable de bout en bout par le client, loin des templates génériques.",
@@ -53,7 +56,7 @@ export const projects = [
     year: "2024",
     meta: ["Stage de 2 mois", "Web designer UI/UX &", "Web développeur"],
     image: unifoxCover,
-    link: "",
+    link: "", // ← URL du site à ajouter
     cover: "#26244a",
     description:
       "Stage de deux mois en tant que web designer UI/UX et développeur. Refonte de l'interface produit et mise en place d'un système de composants réutilisables, du wireframe jusqu'à l'intégration.",
@@ -84,7 +87,7 @@ export const projects = [
     year: "2023",
     meta: ["Marque de vêtements connectés", "Branding & direction artistique"],
     image: echoCover,
-    link: "",
+    link: "", // ← URL du site à ajouter
     cover: "#13242a",
     description:
       "Marque de vêtements connectés. Création de l'identité visuelle complète — logo, système graphique, direction artistique et déclinaisons produit. S'inscrivant dans un projet plus large, l'identité devait être reconnaissable et cohérente, ce premier projet porté sur une collaboration fictive avec Aphex Twin.",

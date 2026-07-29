@@ -1000,6 +1000,46 @@ body.has-custom-cursor button {
   border-radius: var(--radius-md);
   display: block;
 }
+/* Clickable cover (project.link filled in) — sober affordance: the hint sits
+   in the corner and the image lifts slightly on hover. */
+.pd-cover-link {
+  position: relative;
+  display: block;
+  border-radius: var(--radius-md);
+}
+.pd-cover-link img,
+.pd-cover-link .pd-cover-fallback {
+  transition:
+    border-color var(--d-medium) var(--ease-out),
+    filter var(--d-medium) var(--ease-out);
+}
+.pd-cover-link:hover img,
+.pd-cover-link:focus-visible img,
+.pd-cover-link:hover .pd-cover-fallback,
+.pd-cover-link:focus-visible .pd-cover-fallback {
+  border-color: rgba(244, 244, 242, 0.35);
+  filter: brightness(1.06);
+}
+.pd-cover-hint {
+  position: absolute;
+  right: var(--s-md);
+  bottom: var(--s-md);
+  padding: 0.5em 0.9em;
+  border: 1px solid rgba(244, 244, 242, 0.2);
+  border-radius: var(--radius-sm);
+  background: rgba(10, 10, 11, 0.72);
+  backdrop-filter: blur(6px);
+  color: var(--text);
+  opacity: 0.75;
+  transition:
+    opacity var(--d-medium) var(--ease-out),
+    border-color var(--d-medium) var(--ease-out);
+}
+.pd-cover-link:hover .pd-cover-hint,
+.pd-cover-link:focus-visible .pd-cover-hint {
+  opacity: 1;
+  border-color: rgba(244, 244, 242, 0.4);
+}
 .pd-cover-fallback {
   display: grid;
   place-items: center;

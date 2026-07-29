@@ -23,6 +23,28 @@ function Cover({ project }) {
   )
 }
 
+/* The cover doubles as a link to the live site when `link` is filled in
+   (src/data/projects.js). Without a link it stays a plain figure. */
+function CoverFrame({ project }) {
+  if (!project.link) return <Cover project={project} />
+
+  return (
+    <a
+      className="pd-cover-link"
+      href={project.link}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={`Voir le site ${project.title} (nouvel onglet)`}
+      data-cursor
+    >
+      <Cover project={project} />
+      <span className="pd-cover-hint pixel" aria-hidden="true">
+        Voir le site ↗
+      </span>
+    </a>
+  )
+}
+
 export default function ProjectDetail() {
   const { id } = useParams()
   const project = getProject(id)
@@ -74,7 +96,7 @@ export default function ProjectDetail() {
       </section>
 
       <figure className="pd-cover">
-        <Cover project={project} />
+        <CoverFrame project={project} />
       </figure>
 
       <section className="pd-body shell">
