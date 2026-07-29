@@ -56,7 +56,7 @@ export const projects = [
     year: "2024",
     meta: ["Stage de 2 mois", "Web designer UI/UX &", "Web développeur"],
     image: unifoxCover,
-    link: "", // ← URL du site à ajouter
+    link: "https://powellvl.github.io/vulpes-labs/",
     cover: "#26244a",
     description:
       "Stage de deux mois en tant que web designer UI/UX et développeur. Refonte de l'interface produit et mise en place d'un système de composants réutilisables, du wireframe jusqu'à l'intégration.",
@@ -87,7 +87,7 @@ export const projects = [
     year: "2023",
     meta: ["Marque de vêtements connectés", "Branding & direction artistique"],
     image: echoCover,
-    link: "", // ← URL du site à ajouter
+    link: "https://www.dropbox.com/scl/fi/dqcndpna97cgp83osku2e/charte-graphique-echo.pdf?rlkey=g2eb6t3c9c0kf6wvxdajfb8bs&st=2wniy2z8&dl=0",
     cover: "#13242a",
     description:
       "Marque de vêtements connectés. Création de l'identité visuelle complète — logo, système graphique, direction artistique et déclinaisons produit. S'inscrivant dans un projet plus large, l'identité devait être reconnaissable et cohérente, ce premier projet porté sur une collaboration fictive avec Aphex Twin.",
