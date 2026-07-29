@@ -128,9 +128,15 @@ body.has-custom-cursor button {
   font-size: var(--fs-small);
 }
 @media (max-width: 880px) {
-  .nav-links,
-  .nav-cta {
+  /* Les liens de section disparaissent (one-page, le scroll suffit) mais le
+     bouton de contact reste : sans lui, un visiteur mobile n'a aucun moyen
+     d'agir avant d'avoir fait défiler toute la page. */
+  .nav-links {
     display: none;
+  }
+  .nav-cta {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.9rem;
   }
 }
 

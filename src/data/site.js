@@ -15,14 +15,16 @@ export const site = {
   ],
   tagline:
     "Développeur et designer indépendant. Je transforme des idées en interfaces nettes, rapides et mémorables.",
-  location: "France · Disponible en remote",
+  // Doit rester cohérent avec le CV : mobilité Paris, recherche de poste.
+  // « Disponible en remote » contredisait la mobilité annoncée sur le CV.
+  location: "Paris · Ouvert aux opportunités en CDI",
   email: "lucax.mb03@gmail.com",
   socials: [
     { label: "Email", href: "mailto:lucax.mb03@gmail.com" },
     {
       target: "_blank",
       label: "LinkedIn",
-      href: "https://www.linkedin.com/in/luca-muscat-baron-3ba04b252/",
+      href: "https://www.linkedin.com/in/luca-muscat-baron/",
     },
     { label: "GitHub", href: "https://github.com/powellvl" },
   ],

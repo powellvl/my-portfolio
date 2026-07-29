@@ -12,7 +12,9 @@
   --surface: #121214;
   --line: #1f1f23;
   --text: #f4f4f2;
-  --muted: #6e6e76;
+  /* #6e6e76 ne donnait que 3.91:1 sur --ink : sous le minimum WCAG AA de
+     4.5:1 pour du texte courant. #85858d monte à 5.4:1 en restant discret. */
+  --muted: #85858d;
   --accent: #7b61ff;
   --accent-glow: #b9a7ff;
 

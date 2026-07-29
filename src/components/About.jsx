@@ -9,9 +9,12 @@ const prefersReduced = () =>
   typeof window !== 'undefined' &&
   window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
+// Ces chiffres doivent rester alignés sur le CV : un recruteur lit le CV puis
+// clique ici, et la moindre divergence coûte la crédibilité des deux documents.
+// N'écris ici que ce qui est défendable en entretien.
 const stats = [
-  { value: '5+', label: "Années d'XP" },
-  { value: '20+', label: 'Projets livrés' },
+  { value: '2 ans', label: 'En entreprise' },
+  { value: '4', label: 'Projets livrés' },
   { value: '100%', label: 'Sur-mesure' },
 ]
 
